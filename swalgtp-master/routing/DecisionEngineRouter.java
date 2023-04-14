@@ -136,9 +136,17 @@ public class DecisionEngineRouter extends ActiveRouter {
                            // decider.shouldSendMarkToHost(m, otherNode);
                             
 				if(decider.shouldSendMessageToHost(m, otherNode)){
-                                    if(decider.shouldSendMarkToHost(m, otherNode)){
-                                        outgoingMessages.add(new Tuple<Message,Connection>(m, con));
-                                    }
+                                    
+                                    outgoingMessages.add(new Tuple<Message,Connection>(m, con));
+                                }
+                                
+			}
+                        for(Message m : msgs)
+			{ 
+                           // decider.shouldSendMarkToHost(m, otherNode);
+                            
+				if(decider.shouldSendMarkToHost(m, otherNode)){
+                                    
                                     outgoingMessages.add(new Tuple<Message,Connection>(m, con));
                                 }
                                 
