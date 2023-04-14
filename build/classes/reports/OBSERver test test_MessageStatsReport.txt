@@ -1,0 +1,20 @@
+Message stats for scenario OBSERver test test
+sim_time: 43200.1000
+created: 1468
+started: 9932
+relayed: 7100
+aborted: 2831
+dropped: 7588
+removed: 0
+delivered: 331
+delivery_prob: 0.2255
+response_prob: 0.0000
+overhead_ratio: 20.4502
+latency_avg: 2878.4734
+latency_med: 2558.9000
+hopcount_avg: 2.3958
+hopcount_med: 2
+buffertime_avg: 3334.0445
+buffertime_med: 3060.5000
+rtt_avg: NaN
+rtt_med: NaN

@@ -1,0 +1,18 @@
+Scenario.name = SprayAndWait
+Group.router = DecisionEngineRouter
+DecisionEngineRouter.decisionEngine = sprayandwait.SprayAndWaitRouterDecisionEngine
+DecisionEngineRouter.binaryMode = true
+
+DecisionEngineRouter.nrofCopies = [6; 90]
+
+Events1.hosts = 0,119
+
+# how many reports to load
+Report.nrofReports = 2
+# length of the warm up period (simulated seconds)
+Report.warmup = 0
+# default directory of reports (can be overridden per Report with output setting)
+Report.reportDir = reports/
+# Report classes to load
+Report.report1 = ContactTimesReport
+Report.report2 = MessageStatsReport
