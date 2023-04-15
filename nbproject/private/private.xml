@@ -3,27 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/SnW_MnR/.git/config</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/routing/MessageRouter.java</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/routing/sprayandwait/SprayAndWaitRouterWithTaxiProblem.java</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/routing/ActiveRouter.java</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/SnW_MnR/build/classes/reports/SprayAndWait_MessageStatsReport.txt</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/SnW_MnR/build/classes/reports/OBSERver%20test%20test_MessageStatsReport.txt</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/movement/RandomWaypointObs.java</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/routing/sprayandwait/SprayAndWaitRouterDecisionEngine.java</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/core/SimScenario.java</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/run_CM_coba.txt</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/routing/DecisionEngineRouter.java</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/movement/RandomWaypoint_Crowd.java</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/SnW_MnR/build/classes/reports/OBSERver%20tesss_MessageStatsReport.txt</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/routing/mark_and_recapture/SprayAndWaitRouterDE_MnR.java</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/run_snwdanobs.txt</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/movement/MovementModel.java</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/core/Message.java</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/routing/RoutingDecisionEngine.java</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/snw_settings.txt</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/default_settings.txt</file>
-            <file>file:/E:/Aria/Study/Tugas%20Akhir/SnW_MnR/swalgtp-master/routing/sprayandwait/SprayAndWaitRouterWithTaxiProblemDiTambah.java</file>
+            <file>file:/home/aurelius_aria/NetBeansProjects/TA/My_TA/the-one-mark-and-recapture/swalgtp-master/routing/mark_and_recapture/Observer.java</file>
+            <file>file:/home/aurelius_aria/NetBeansProjects/TA/My_TA/the-one-mark-and-recapture/swalgtp-master/core/SimScenario.java</file>
+            <file>file:/home/aurelius_aria/NetBeansProjects/TA/My_TA/the-one-mark-and-recapture/swalgtp-master/core/Message.java</file>
+            <file>file:/home/aurelius_aria/NetBeansProjects/TA/My_TA/the-one-mark-and-recapture/swalgtp-master/run_MnR.txt</file>
+            <file>file:/home/aurelius_aria/NetBeansProjects/TA/My_TA/the-one-mark-and-recapture/build/classes/reports/mark%20and%20recapture%20test_MessageStatsReport.txt</file>
+            <file>file:/home/aurelius_aria/NetBeansProjects/TA/My_TA/the-one-mark-and-recapture/swalgtp-master/routing/DecisionEngineRouter.java</file>
+            <file>file:/home/aurelius_aria/NetBeansProjects/TA/My_TA/the-one-mark-and-recapture/swalgtp-master/routing/mark_and_recapture/SprayAndWaitRouterDE_MnR.java</file>
+            <file>file:/home/aurelius_aria/NetBeansProjects/TA/My_TA/the-one-mark-and-recapture/swalgtp-master/default_settings.txt</file>
+            <file>file:/home/aurelius_aria/NetBeansProjects/TA/My_TA/the-one-mark-and-recapture/swalgtp-master/routing/ActiveRouter.java</file>
         </group>
     </open-files>
 </project-private>
