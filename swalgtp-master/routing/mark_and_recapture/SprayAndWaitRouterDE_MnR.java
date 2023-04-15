@@ -28,7 +28,7 @@ import routing.RoutingDecisionEngine;
  * @author Aurelius Aria Baras Panyapa
  * Kelas routing ini menggunakan decisionEngine Router dan algoritma mark and recapture
  */
-public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine {
+public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine, ObserverNode {
 
     public static final String NROF_COPIES = "nrofCopies";
     public static final String NROF_MARK = "nrofMark";
@@ -43,7 +43,7 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine {
     public int initialNrofMark;
     public static final int DEFAULT_INTERVAL = 3600;
     private double lastUpdate = Double.MAX_VALUE;
-    protected boolean nodeMark;
+    protected boolean observerNode;
     //public final String markPrefix;
     private int estimation;
     private int interval;
@@ -73,7 +73,7 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine {
         }
         
        // this.markPrefix = s.getSetting(MARK_PREFIX);
-        this.nodeMark = false;
+        this.observerNode = false;
         this.mark = 0;
         this.estimation = 0;
     }
@@ -82,7 +82,7 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine {
         this.initialNrofCopies = proto.initialNrofCopies;
         this.initialNrofMark = proto.initialNrofMark;
         this.isBinary = proto.isBinary; //this.isBinary = proto.isBinary;
-        this.nodeMark = proto.nodeMark;
+        this.observerNode = proto.observerNode;
         this.mark = proto.mark;
       //  this.markPrefix = cs.markPrefix;
         this.markNode = new HashSet<DTNHost>();
@@ -116,7 +116,7 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine {
         }
         
         if (thisHost.isRadioActive() == false){
-            System.out.println("sampai sini");
+            //System.out.println("sampai sini");
             return false;
         }
         
@@ -260,9 +260,7 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine {
        // System.out.println("update");
         double currentTime = SimClock.getIntTime();
         Set<String> messageToDelete = new HashSet<>();
-        String myMark = "";
-        String markPrefix = Observer.getInstance().getMarkPrefix();
-        Message message = null;
+        String markPrefix = Observer.getInstance().getMarkPrefix();     
         Collection<Message> messagesCollection = host.getMessageCollection();
         
         for (Iterator<Message> iterator  = messagesCollection.iterator(); iterator.hasNext();) {
@@ -289,6 +287,7 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine {
         }
         
         for(String messageId : messageToDelete){
+            //System.out.println("");
             host.deleteMessage(messageId, true);
         }
         
@@ -299,7 +298,7 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine {
                         Integer nrofMark = (Integer) m.getProperty(MSG_MARK_PROPERTY);
                         if(nrofMark == 1){
                             System.out.println("");
-                            System.out.println("Node " + host.getAddress());
+                            System.out.println("Node " + host.getName());
                             System.out.println("nrofMark " + nrofMark);
                             System.out.println("Interval " + SimClock.getIntTime());
                             System.out.println("TTL "+ m.getTtl());
@@ -321,9 +320,6 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine {
         this.lastUpdate = currentTime - currentTime % interval;
     }
 
-    public int getEstimation() {
-        return estimation;
-    }
 
     public void setEstimation(int estimation) {
         this.estimation = estimation;
@@ -333,4 +329,13 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine {
         return this.estimation / 2;
     }
 
+    @Override
+    public boolean getObservet() {
+        return this.observerNode;
+    }
+    
+    @Override
+    public int getEstimation() {
+        return estimation;
+    }
 }

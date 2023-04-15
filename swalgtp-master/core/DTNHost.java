@@ -214,6 +214,17 @@ public class DTNHost implements Comparable<DTNHost> {
 	public void setName(String name) {
 		this.name = name;
 	}
+        
+        /**
+         * Get the node name
+         * by Aurelius Aria
+         * @return 
+         */
+        public String getName() {
+            return name;
+        }
+        
+        
 
 	/**
 	 * Returns the messages in a collection.
