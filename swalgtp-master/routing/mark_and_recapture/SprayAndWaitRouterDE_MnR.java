@@ -116,7 +116,7 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine {
         }
         
         if (thisHost.isRadioActive() == false){
-            System.out.println("sampai sini");
+            //System.out.println("sampai sini");
             return false;
         }
         
@@ -260,9 +260,7 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine {
        // System.out.println("update");
         double currentTime = SimClock.getIntTime();
         Set<String> messageToDelete = new HashSet<>();
-        String myMark = "";
-        String markPrefix = Observer.getInstance().getMarkPrefix();
-        Message message = null;
+        String markPrefix = Observer.getInstance().getMarkPrefix();     
         Collection<Message> messagesCollection = host.getMessageCollection();
         
         for (Iterator<Message> iterator  = messagesCollection.iterator(); iterator.hasNext();) {
@@ -289,6 +287,7 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine {
         }
         
         for(String messageId : messageToDelete){
+            //System.out.println("");
             host.deleteMessage(messageId, true);
         }
         
