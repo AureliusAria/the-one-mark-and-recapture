@@ -63,4 +63,5 @@ public class AverageConvergenTimeReport extends Report implements UpdateListener
         String output = format((int) SimClock.getTime()) + " \t " + format(AV_Rata);
         write(output);
     }
+    
 }
