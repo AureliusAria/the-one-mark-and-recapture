@@ -180,15 +180,16 @@ MovementModel.warmup = 1000
 ## Reports - all report names have to be valid report classes
 
 # how many reports to load
-Report.nrofReports = 3
+Report.nrofReports = 4
 Report.warmup = 0
 Report.reportDir = reports/Haggle3ActiveTimes mark and recapture
 
 # Report classes to load
 Report.report1 = MessageReportGetCounting
 #Report.report2 = AverageConvergenTimeReport
-Report.report2 = TotalNodeHidupReport
-Report.report3 = MessageStatsReport
+Report.report2 = IsActiveMovement
+Report.report3 = TotalNodeHidupReport
+Report.report4 = MessageStatsReport
 
 ## GUI settings
 
