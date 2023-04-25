@@ -23,13 +23,13 @@ import routing.mark_and_recapture.ObserverNode;
  * @author aurelius_aria
  */
 public class ReportEstimation extends Report implements UpdateListener{
-    private static Map<DTNHost, ArrayList<Integer>> estimasi;
+    private static Map<DTNHost, Map<Double, ArrayList<Integer>>> estimasi;
     private static List<Double> intervalTime;
     private double lastUpdate = 0;
     private double updateInterval= 3600;
 
     public ReportEstimation() {
-        estimasi = new HashMap<DTNHost, ArrayList<Integer>>();
+        estimasi = new HashMap<DTNHost, Map<Double, ArrayList<Integer>>>();
         intervalTime = new  ArrayList<Double>();
         lastUpdate = 0;
         updateInterval =3600;
@@ -49,12 +49,33 @@ public class ReportEstimation extends Report implements UpdateListener{
                           MessageRouter mr = obs.getRouter();
                           RoutingDecisionEngine de = ((DecisionEngineRouter)mr).getDecisionEngine();
                           ObserverNode ob = (ObserverNode) de;
+                          Map<Double, ArrayList<Integer>> innerMap = new HashMap<Double, ArrayList<Integer>>();
+                          ArrayList<Integer> listEs = new ArrayList<>();
+                          
+                          listEs.add(ob.getEstimation());
+                          
+                          innerMap.put(lastUpdate, listEs);
                           if(!estimasi.containsKey(obs)){
-                              ArrayList listEstimasi = new ArrayList(); 
-                              estimasi.put(obs, listEstimasi);
+                              estimasi.put(obs, innerMap);
+                          } else {
+                              estimasi.get(obs).put(lastUpdate, listEs);
                           }
-                          ArrayList<Integer> es = estimasi.get(obs);
-                          es.add(ob.getEstimation());
+//                          if(!estimasi.containsKey(obs)){
+//                              ArrayList listEstimasi = new ArrayList(); 
+//                              estimasi.put(obs, new HashMap<Double, ArrayList<Integer>>());
+//                              estimasi.get(obs).put(lastUpdate, listEstimasi);
+//                          }else{
+//                              int es;
+//                              es = ob.getEstimation();
+//                              Map<Double, ArrayList<Integer>> existingMap = estimasi.get(obs);
+//                              if(!existingMap.containsKey(lastUpdate)){
+//                                  ArrayList<Integer> existingList = existingMap.get(lastUpdate);
+//                                  if(existingList != null){
+//                                      existingList.add(es);
+//                                  }
+//                              }
+//                          }
+                          //done();
                           
                       }
                   }
@@ -65,26 +86,31 @@ public class ReportEstimation extends Report implements UpdateListener{
     
     @Override
     public void done(){
-//        String print ;
-//        for(Map.Entry<DTNHost,ArrayList<Integer>> es : estimasi.entrySet()){
-//            print = "Obs : " + es.getKey() + " : " + es.getValue() + "\n";
-//            write(print);
-//        }
-        String observerNode ;
-        String listEstimasi;
-        //write("Daftar Estimasi");
-        for(Map.Entry<DTNHost,ArrayList<Integer>> es : estimasi.entrySet()){
-            observerNode = es.getKey().toString();
-            //write(lastUpdate + "");
-            //write(observerNode);
-            //out.print(es.getKey().toString());
-           for(Integer listEs : es.getValue()){
-              // out.print(" : "+ listEs);
-              listEstimasi = listEs.toString();
-               write(lastUpdate + "" + " : "+ observerNode +": "+ listEstimasi + "\n");
-           }
-           
+        String obs ;
+        String interval;
+        String estimasiPerObs;
+        for(Map.Entry<DTNHost, Map<Double, ArrayList<Integer>>> entry : estimasi.entrySet()){
+            obs = "Observer : " + entry.getKey();
+            Map<Double, ArrayList<Integer>> innerMap = entry.getValue();
+            
+            write(obs);
+            
+            for(Map.Entry<Double, ArrayList<Integer>> innerEntry : innerMap.entrySet()){
+                estimasiPerObs = "Inteval : " + innerEntry.getKey() + " Estimasi : " + innerEntry.getValue();
+                write(estimasiPerObs);
+            }
         }
+//        for(Map.Entry<DTNHost,ArrayList<Integer>> es : estimasi.entrySet()){
+//            obs = "Obs : " + es.getKey();
+//            write(obs);
+//            for(Integer value : es.getValue() ){
+//                estimasiPerObs = updateInterval + " : " + value + "\n";
+//                write(estimasiPerObs);
+//            }
+//            
+//        }
+       
+       super.done();
     }
     
 }
