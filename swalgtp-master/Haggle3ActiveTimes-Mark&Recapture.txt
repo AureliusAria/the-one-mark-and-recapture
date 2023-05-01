@@ -19,7 +19,9 @@ btInterface.transmitRange = 10
 Group.router = DecisionEngineRouter
 DecisionEngineRouter.decisionEngine = mark_and_recapture.SprayAndWaitRouterDE_MnR
 DecisionEngineRouter.binaryMode = true
-DecisionEngineRouter.nrofMark = 24
+
+DecisionEngineRouter.nrofCopies = 5
+DecisionEngineRouter.nrofMark = 10
 
 
 Scenario.nrofHostGroups = 20
@@ -37,62 +39,62 @@ Group.movementModel = StationaryMovement
 Group1.groupID = Observer
 Group1.movementModel = RandomWaypointObs
 Group1.moveArea = 1
-Group1.speed = 0.5, 0.6
+Group1.speed = 0.5, 1.5
 Group1.nrofHosts = 1
 
 
 Group2.groupID = Observer
 Group2.movementModel = RandomWaypointObs
 Group2.moveArea = 2
-Group2.speed = 0.5, 0.6
+Group2.speed = 0.5, 1.5
 Group2.nrofHosts = 1
 
 Group3.groupID = Observer
 Group3.movementModel = RandomWaypointObs
 Group3.moveArea = 3
-Group3.speed = 0.5, 0.6
+Group3.speed = 0.5, 1.5
 Group3.nrofHosts = 1
 
 Group4.groupID = Observer
 Group4.movementModel = RandomWaypointObs
 Group4.moveArea = 4
-Group4.speed = 0.5, 0.6
+Group4.speed = 0.5, 1.5
 Group4.nrofHosts = 1
 
 Group5.groupID = Observer
 Group5.movementModel = RandomWaypointObs
 Group5.moveArea = 5
-Group5.speed = 0.5, 0.6
+Group5.speed = 0.5, 1.5
 Group5.nrofHosts = 1
 
 Group6.groupID = Observer
 Group6.movementModel = RandomWaypointObs
 Group6.moveArea = 6
-Group6.speed = 0.5, 0.6
+Group6.speed = 0.5, 1.5
 Group6.nrofHosts = 1
 
 Group7.groupID = Observer
 Group7.movementModel = RandomWaypointObs
 Group7.moveArea = 7
-Group7.speed = 0.5, 0.6
+Group7.speed = 0.5, 1.5
 Group7.nrofHosts = 1
 
 Group8.groupID = Observer
 Group8.movementModel = RandomWaypointObs
 Group8.moveArea = 8
-Group8.speed = 0.5, 0.6
+Group8.speed = 0.5, 1.5
 Group8.nrofHosts = 1
 
 Group9.groupID = Observer
 Group9.movementModel = RandomWaypointObs
 Group9.moveArea = 9
-Group9.speed = 0.5, 0.6
+Group9.speed = 0.5, 1.5
 Group9.nrofHosts = 1
 
 #Dimatikan
 Group10.groupID = A
 Group10.nrofHosts = 2
-Group10.net.activeTimes = 0, 29700, 66600, 274883
+Group10.net.activeTimes = 0, 154800
 #44100, 91800
 #0, 29700, 66600, 274883
 
@@ -103,7 +105,7 @@ Group11.nrofHosts = 6
 #Dimatikan
 Group12.groupID = G
 Group12.nrofHosts = 2
-Group12.net.activeTimes = 0, 29700, 66600, 274883
+Group12.net.activeTimes = 0, 154800
 #44100, 91800
 #0, 29700, 66600, 274883
 
@@ -114,7 +116,7 @@ Group13.nrofHosts = 4
 #Dimatikan
 Group14.groupID = I
 Group14.nrofHosts = 2
-Group14.net.activeTimes = 0, 29700, 66600, 274883
+Group14.net.activeTimes = 0, 154800
 #44100, 91800
 #0, 29700, 66600, 274883
 
@@ -125,29 +127,29 @@ Group15.nrofHosts = 4
 #Dimatikan
 Group16.groupID = K
 Group16.nrofHosts = 2
-Group16.net.activeTimes = 0, 29700, 66600, 274883
+Group16.net.activeTimes = 0, 154800
 #44100, 91800
 #0, 29700, 66600, 274883
 
 #Hidup
 Group17.groupID = L
-Group17.nrofHosts = 7
+Group17.nrofHosts = 5
 
 #Dimatikan
 Group18.groupID = O
 Group18.nrofHosts = 2
-Group18.net.activeTimes = 0, 29700, 66600, 274883
+Group18.net.activeTimes = 0, 154800
 #44100, 91800
 #0, 29700, 66600, 274883
 
 #Hidup
 Group19.groupID = P
-Group19.nrofHosts = 9 
+Group19.nrofHosts = 6 
 
 #Dimatikan
 Group20.groupID = S
 Group20.nrofHosts = 1
-Group20.net.activeTimes = 0, 29700, 66600, 274883
+Group20.net.activeTimes = 0, 154800
 #44100, 91800
 #0, 29700, 66600, 274883
 
@@ -165,7 +167,7 @@ Events2.interval = 290,310
 Events2.size = 10k 
 
 ## range of message source/destination address 
-Events2.hosts = 0, 49
+Events2.hosts = 0, 44
 # 0, 35 Haggle Cam
 # 0,40 Haggle
 # 0,96 Reality
@@ -180,16 +182,14 @@ MovementModel.warmup = 1000
 ## Reports - all report names have to be valid report classes
 
 # how many reports to load
-Report.nrofReports = 4
+Report.nrofReports = 3
 Report.warmup = 0
 Report.reportDir = reports/Haggle3 mark and recapture
 
 # Report classes to load
-Report.report1 = MessageReportGetCounting
-#Report.report2 = AverageConvergenTimeReport
-Report.report2 = ReportEstimation
-Report.report3 = TotalNodeHidupReport
-Report.report4 = MessageStatsReport
+Report.report1 = ReportEstimation
+Report.report2 = TotalNodeHidupReport
+Report.report3 = MessageStatsReport
 
 ## GUI settings
 

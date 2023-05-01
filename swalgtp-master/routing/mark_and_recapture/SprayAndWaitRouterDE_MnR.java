@@ -304,7 +304,7 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine, Observer
                             System.out.println("TTL "+ m.getTtl());
                             
                             if(!this.markNode.isEmpty()){
-                                int tempEstimation = (this.initialNrofMark * this.recaptureNode.size()) / this.markNode.size();
+                                int tempEstimation = (initialNrofMark * this.recaptureNode.size()) / this.markNode.size();
                                 this.setEstimation(tempEstimation);
                                 System.out.println("Mark " + initialNrofMark);
                                 System.out.println("Recapture " + this.recaptureNode.size());
