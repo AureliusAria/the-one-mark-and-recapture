@@ -9,6 +9,7 @@ import core.DTNHost;
 import core.SimClock;
 import core.SimScenario;
 import core.UpdateListener;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,13 +24,13 @@ import routing.mark_and_recapture.ObserverNode;
  * @author aurelius_aria
  */
 public class ReportEstimation extends Report implements UpdateListener{
-    private static Map<DTNHost, Map<Double, ArrayList<Integer>>> estimasi;
+    private static Map<DTNHost, Map<Double, Integer>> estimasi;
     private static List<Double> intervalTime;
     private double lastUpdate = 0;
     private double updateInterval= 3600;
 
     public ReportEstimation() {
-        estimasi = new HashMap<DTNHost, Map<Double, ArrayList<Integer>>>();
+        estimasi = new HashMap<DTNHost, Map<Double, Integer>>();
         intervalTime = new  ArrayList<Double>();
         lastUpdate = 0;
         updateInterval =3600;
@@ -49,16 +50,16 @@ public class ReportEstimation extends Report implements UpdateListener{
                           MessageRouter mr = obs.getRouter();
                           RoutingDecisionEngine de = ((DecisionEngineRouter)mr).getDecisionEngine();
                           ObserverNode ob = (ObserverNode) de;
-                          Map<Double, ArrayList<Integer>> innerMap = new HashMap<Double, ArrayList<Integer>>();
+                          Map<Double, Integer> innerMap = new HashMap<Double, Integer>();
                           ArrayList<Integer> listEs = new ArrayList<>();
                           
-                          listEs.add(ob.getEstimation());
+                          int getEstimasi = ob.getEstimation();
                           
-                          innerMap.put(lastUpdate, listEs);
+                          innerMap.put(lastUpdate, getEstimasi);
                           if(!estimasi.containsKey(obs)){
                               estimasi.put(obs, innerMap);
                           } else {
-                              estimasi.get(obs).put(lastUpdate, listEs);
+                              estimasi.get(obs).put(lastUpdate, getEstimasi);
                           }
 //                          if(!estimasi.containsKey(obs)){
 //                              ArrayList listEstimasi = new ArrayList(); 
@@ -89,14 +90,14 @@ public class ReportEstimation extends Report implements UpdateListener{
         String obs ;
         String interval;
         String estimasiPerObs;
-        for(Map.Entry<DTNHost, Map<Double, ArrayList<Integer>>> entry : estimasi.entrySet()){
-            obs = "Observer : " + entry.getKey();
-            Map<Double, ArrayList<Integer>> innerMap = entry.getValue();
+        for(Map.Entry<DTNHost, Map<Double,Integer>> entry : estimasi.entrySet()){
+            obs = "" + entry.getKey();
+            Map<Double, Integer> innerMap = entry.getValue();
             
             write(obs);
             
-            for(Map.Entry<Double, ArrayList<Integer>> innerEntry : innerMap.entrySet()){
-                estimasiPerObs = "Inteval : " + innerEntry.getKey() + " Estimasi : " + innerEntry.getValue();
+            for(Map.Entry<Double, Integer> innerEntry : innerMap.entrySet()){
+                estimasiPerObs = BigDecimal.valueOf(innerEntry.getKey()) + " : " + innerEntry.getValue();
                 write(estimasiPerObs);
             }
         }

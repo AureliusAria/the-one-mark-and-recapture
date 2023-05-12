@@ -193,7 +193,7 @@ public class SprayAndWaitRouterWithTaxiProblem extends Report implements Routing
     }
 
     @Override
-    public boolean shouldSendMarkToHost(Message m, DTNHost otherHost) {
+    public boolean shouldSendMarkToHost(Message m, DTNHost otherHost, DTNHost thisHost) {
         return false;
     }
 

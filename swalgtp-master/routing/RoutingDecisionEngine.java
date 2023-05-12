@@ -100,7 +100,7 @@ public interface RoutingDecisionEngine
 	public boolean shouldSendMessageToHost(Message m, DTNHost otherHost);
         
         //untuk mengirim mark
-        public boolean shouldSendMarkToHost(Message m, DTNHost otherHost);
+        public boolean shouldSendMarkToHost(Message m, DTNHost otherHost, DTNHost thisHost);
 	/**
 	 * Called after a message is sent to some other peer to ask if it should now
 	 * be deleted from the message store. 

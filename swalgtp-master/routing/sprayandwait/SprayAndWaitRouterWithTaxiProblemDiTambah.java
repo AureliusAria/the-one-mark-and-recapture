@@ -266,7 +266,7 @@ public class SprayAndWaitRouterWithTaxiProblemDiTambah implements RoutingDecisio
     }
 
     @Override
-    public boolean shouldSendMarkToHost(Message m, DTNHost otherHost) {
+    public boolean shouldSendMarkToHost(Message m, DTNHost otherHost, DTNHost thisHost) {
         return false;
     }
 

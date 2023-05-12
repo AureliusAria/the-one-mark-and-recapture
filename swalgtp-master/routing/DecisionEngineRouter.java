@@ -131,6 +131,7 @@ public class DecisionEngineRouter extends ActiveRouter {
 			 * there are any messages that should get sent to this peer.
 			 */
 			Collection<Message> msgs = getMessageCollection();
+                        String thisHost = ""+getHost();
 			for(Message m : msgs)
 			{ 
                            // decider.shouldSendMarkToHost(m, otherNode);
@@ -139,18 +140,13 @@ public class DecisionEngineRouter extends ActiveRouter {
                                     
                                     outgoingMessages.add(new Tuple<Message,Connection>(m, con));
                                 }
-                                
-			}
-                        for(Message m : msgs)
-			{ 
-                           // decider.shouldSendMarkToHost(m, otherNode);
-                            
-				if(decider.shouldSendMarkToHost(m, otherNode)){
+                                if(decider.shouldSendMarkToHost(m, otherNode, this.getHost())){
                                     
                                     outgoingMessages.add(new Tuple<Message,Connection>(m, con));
                                 }
                                 
 			}
+                       
 		}
 		else
 		{
@@ -356,12 +352,21 @@ public class DecisionEngineRouter extends ActiveRouter {
 	
 	protected void findConnectionsForNewMessage(Message m, DTNHost from)
 	{
+            
 		//for(Connection c : getHost()) 
 		for(Connection c : getConnections())
 		{
 			DTNHost other = c.getOtherNode(getHost());
 			if(other != from && decider.shouldSendMessageToHost(m, other))
 			{
+                            
+				//if(m.getId().equals("M7"))
+					//System.out.println("Adding attempt for M7 from: " + getHost() + " to: " + other);
+				outgoingMessages.add(new Tuple<Message, Connection>(m, c));
+			}
+                        if(other != from && decider.shouldSendMarkToHost(m, other, getHost()))
+			{
+                            
 				//if(m.getId().equals("M7"))
 					//System.out.println("Adding attempt for M7 from: " + getHost() + " to: " + other);
 				outgoingMessages.add(new Tuple<Message, Connection>(m, c));

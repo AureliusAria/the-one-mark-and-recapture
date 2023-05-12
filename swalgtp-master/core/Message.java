@@ -52,6 +52,7 @@ public class Message implements Comparable<Message> {
         
         //inisisi prefix
         private String prefix;
+        
 	
 	static {
 		reset();
@@ -66,7 +67,7 @@ public class Message implements Comparable<Message> {
 	 * 	will be the same for all replicates of the message)
 	 * @param size Size of the message (in bytes)
 	 */
-	public Message(DTNHost from, DTNHost to, String id, int size, String prefix) {
+	public Message(DTNHost from, DTNHost to, String id, int size,  String prefix) {
 		this.from = from;
 		this.to = to;
 		this.id = id;
@@ -85,6 +86,7 @@ public class Message implements Comparable<Message> {
 		
 		Message.nextUniqueId++;
 		addNodeOnPath(from);
+                
 	}
 	
 	/**
@@ -335,7 +337,7 @@ public class Message implements Comparable<Message> {
 	 * @return A replicate of the message
 	 */
 	public Message replicate() {
-		Message m = new Message(from, to, id, size, prefix);
+		Message m = new Message(from, to, id, size,  prefix);
 		m.copyFrom(this);
 		return m;
 	}
@@ -374,6 +376,7 @@ public class Message implements Comparable<Message> {
         }
 
         private String initPrefix() {
+            
             if(this.prefix != "markMessage"){
                 if(this.from.toString().startsWith("Obs")){
                     return "markMessage";
@@ -386,5 +389,8 @@ public class Message implements Comparable<Message> {
             Observer obs = new Observer();
             return obs;
         }
+
+    
+        
 	
 }

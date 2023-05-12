@@ -39,12 +39,12 @@ public class MaxPropRouterTest extends AbstractRouterTest {
 		
 		Message m1 = new Message(h1,h2, msgId2, 10,"");
 		h1.createNewMessage(m1);
-		Message m2 = new Message(h1,h3, msgId3, 10,"");
+		Message m2 = new Message(h1,h3, msgId3, 10, "");
 		h1.createNewMessage(m2);
-		Message m3 = new Message(h1,h4, msgId4, 10,"");
+		Message m3 = new Message(h1,h4, msgId4, 10, "");
 		h1.createNewMessage(m3);
 		
-		Message m4 = new Message(h2,h1, msgId5, 10,"");
+		Message m4 = new Message(h2,h1, msgId5, 10, "");
 		h2.createNewMessage(m4);
 		checkCreates(4);
 		
@@ -165,7 +165,7 @@ public class MaxPropRouterTest extends AbstractRouterTest {
 		assertFalse(mc.next());
 		
 		// new msg to h3
-		Message m2 = new Message(h3,h1, msgId2, msgSize,"");
+		Message m2 = new Message(h3,h1, msgId2, msgSize, "");
 		h3.createNewMessage(m2);
 		checkCreates(1);
 		
@@ -221,7 +221,7 @@ public class MaxPropRouterTest extends AbstractRouterTest {
 		disconnect(h4);
 		/* h4 probs: h3:0.25, th1:0.1875, h5:0.5625
 		 * these changes should not be visible to h3! */
-		Message m1 = new Message(h1,h5, msgId1, msgSize,"");
+		Message m1 = new Message(h1,h5, msgId1, msgSize, "");
 		h1.createNewMessage(m1);
 		
 		/* msg with path h1 -> h2     -> h3       -> h4       -> h5  */
@@ -237,23 +237,23 @@ public class MaxPropRouterTest extends AbstractRouterTest {
 	public void testMpsTimeStamps() {
 		/* create some messages so we can ask costs to destinations */
 		int msgIndx = 1;
-		Message m1 = new Message(h1,h2, ""+msgIndx++, 1,"");
+		Message m1 = new Message(h1,h2, ""+msgIndx++, 1, "");
 		h1.createNewMessage(m1);
-		Message m2 = new Message(h1,h1, ""+msgIndx++, 1,"");
+		Message m2 = new Message(h1,h1, ""+msgIndx++, 1, "");
 		h1.createNewMessage(m2);
 		Message m3 = new Message(h1,h3, ""+msgIndx++, 1,"");
 		h1.createNewMessage(m3);
 		Message m4 = new Message(h3,h2, ""+msgIndx++, 1,"");
 		h3.createNewMessage(m4);
-		Message m5 = new Message(h3,h3, ""+msgIndx++, 1,"");
+		Message m5 = new Message(h3,h3, ""+msgIndx++, 1, "");
 		h3.createNewMessage(m5);
 		Message m6 = new Message(h4,h3, ""+msgIndx++, 1,"");
 		h4.createNewMessage(m6);
-		Message m7 = new Message(h4,h4, ""+msgIndx++, 1,"");
+		Message m7 = new Message(h4,h4, ""+msgIndx++, 1, "");
 		h4.createNewMessage(m7);
 		Message m8 = new Message(h2,h2, ""+msgIndx++, 1,"");
 		h2.createNewMessage(m8);
-		Message m9 = new Message(h2,h4, ""+msgIndx++, 1,"");
+		Message m9 = new Message(h2,h4, ""+msgIndx++, 1, "");
 		h2.createNewMessage(m9);
 		
 		h1.connect(h2);

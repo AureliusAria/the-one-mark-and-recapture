@@ -29,17 +29,17 @@ public class ProphetRouterTest extends AbstractRouterTest {
 	 * Tests normal routing
 	 */
 	public void testRouting() {
-		Message m1 = new Message(h1,h2, msgId2, 1,"");
+		Message m1 = new Message(h1,h2, msgId2, 1, "");
 		h1.createNewMessage(m1);
-		Message m2 = new Message(h1,h3, msgId3, 1,"");
+		Message m2 = new Message(h1,h3, msgId3, 1, "");
 		h1.createNewMessage(m2);
-		Message m3 = new Message(h1,h4, msgId4, 1,"");
+		Message m3 = new Message(h1,h4, msgId4, 1, "");
 		h1.createNewMessage(m3);
-		Message m4 = new Message(h1,h6, "dummy", 1,""); // this message should not be fwded
+		Message m4 = new Message(h1,h6, "dummy", 1, ""); // this message should not be fwded
 		h1.createNewMessage(m4);
-		Message m5 = new Message(h1,h5, msgId5, 1,"");
+		Message m5 = new Message(h1,h5, msgId5, 1, "");
 		h1.createNewMessage(m5);
-		Message m6 = new Message(h4,h1, "d1", 1,"");
+		Message m6 = new Message(h4,h1, "d1", 1, "");
 		h4.createNewMessage(m6);
 		
 		ProphetRouter r4 = (ProphetRouter)h4.getRouter();

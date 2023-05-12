@@ -71,6 +71,7 @@ public class SprayAndWaitRouterDecisionEngine implements RoutingDecisionEngine {
 
     @Override
     public boolean shouldSaveReceivedMessage(Message m, DTNHost thisHost) {
+        
         Integer nrofCopies = (Integer) m.getProperty(MSG_COUNT_PROPERTY);
         if (isBinary) {
             nrofCopies = (int) Math.ceil(nrofCopies / 2.0);
@@ -128,7 +129,7 @@ public class SprayAndWaitRouterDecisionEngine implements RoutingDecisionEngine {
     }
 
     @Override
-    public boolean shouldSendMarkToHost(Message m, DTNHost otherHost) {
+    public boolean shouldSendMarkToHost(Message m, DTNHost otherHost, DTNHost thisHost) {
         return false;
     }
 

@@ -46,12 +46,12 @@ public class MessageGraphvizReportTest extends TestCase {
 		DTNHost h2 = utils.createHost(c2,"h2");
 		DTNHost h3 = utils.createHost(c3,"h3");
 		
-		h1.createNewMessage(new Message(h1, h3, "M1", 1,""));
+		h1.createNewMessage(new Message(h1, h3, "M1", 1, ""));
 		h1.sendMessage("M1", h2);
 		h2.messageTransferred("M1", h1);
 		h2.sendMessage("M1", h3);
 		h3.messageTransferred("M1", h2);
-		h3.createNewMessage(new Message(h3, h2, "M2", 1,""));
+		h3.createNewMessage(new Message(h3, h2, "M2", 1, ""));
 		h3.sendMessage("M2", h2);
 		h2.messageTransferred("M2", h3);
 	}

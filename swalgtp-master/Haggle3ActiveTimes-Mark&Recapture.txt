@@ -27,7 +27,7 @@ DecisionEngineRouter.nrofMark = 10
 Scenario.nrofHostGroups = 20
 
 ## TTL 24 hours=1440, 1 week= 10080, 3 weeks= 30240
-Group.msgTtl = 1440
+Group.msgTtl = 720
 Group.nrofInterfaces = 1
 Group.interface1 = btInterface
 Group.bufferSize = 10M
@@ -163,7 +163,7 @@ Events1.class = ExternalEventsQueue
 Events1.filePath = Haggle3-Infocom5.csv
 #Events1.filePath = Haggle4-Cam-Imote.csv
 Events2.class = MessageEventGenerator
-Events2.interval = 290,310
+Events2.interval = 44000, 44200
 Events2.size = 10k 
 
 ## range of message source/destination address 

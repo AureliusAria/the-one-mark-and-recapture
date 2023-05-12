@@ -5,6 +5,9 @@
  */
 package routing.mark_and_recapture;
 
+import core.DTNHost;
+import java.util.Map;
+
 /**
  *
  * @author aurelius_aria
@@ -12,4 +15,5 @@ package routing.mark_and_recapture;
 public interface ObserverNode {
     public boolean getObservet();
     public int getEstimation();
+    public Map<DTNHost, Map<Double, Integer>> getEstimasi();
 }
