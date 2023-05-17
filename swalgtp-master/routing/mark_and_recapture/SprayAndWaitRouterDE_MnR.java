@@ -100,7 +100,21 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine, Observer
 
     @Override
     public void connectionUp(DTNHost thisHost, DTNHost peer) {
-
+           String cekHost = ""+ thisHost;
+           Collection<Message> msg = peer.getMessageCollection();
+           
+           if(cekHost.startsWith("Obs")){
+               for(Iterator<Message> iterator = msg.iterator(); iterator.hasNext();){
+                   Message m = iterator.next();
+                   if(thisHost.equals(m.getFrom()) && markMessage.get(0).equals(m.getId())){
+                       this.recaptureNode.add(peer);
+                       this.markedNode.add(peer);
+                   }else{
+                       this.recaptureNode.add(peer);
+                   }
+               }
+           }
+           
     }
 
     @Override
@@ -131,7 +145,7 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine, Observer
         if (m.getPrefix().equals(Observer.getInstance().getMarkPrefix())){
             m.addProperty(MSG_MARK_PROPERTY, initialNrofMark);
             this.markMessage.add(m.getId());
-            this.mId = this.markMessage.get(0);
+            //this.mId = this.markMessage.get(0);
             //System.out.println(thisHost + "new" + this.markMessage.get(0));
             return true;
         } else{
@@ -217,23 +231,23 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine, Observer
                 
             
                  //memulai recapture
-               if(nrofMark <= 1 && cekHost.startsWith("Obs")){
-                   //String markMessageId = this.markMessage.get(0);
-                   //System.out.println(cekHost + "should sent" + markMessageId);
-                     for (Message msg : messages) {
-                         
-                        if(m.getPrefix().equals(markPrefix)  ){
-                            if (thisHost.equals(msg.getFrom())&& this.mId.equals(msg.getId())) {
-                                
-                                    markedNode.add(otherHost);
-                                    recaptureNode.add(otherHost);
-                               }else{
-                                recaptureNode.add(otherHost);
-                            } 
-                        
-                        }
-                    }
-                }
+//               if(cekHost.startsWith("Obs")){
+//                   //String markMessageId = this.markMessage.get(0);
+//                   //System.out.println(cekHost + "should sent" + markMessageId);
+//                     for (Message msg : messages) {
+//                         
+//                        //if(m.getPrefix().equals(markPrefix)  ){
+//                            if (thisHost.equals(msg.getFrom())&& markMessage.get(0).equals(msg.getId())) {
+//                                
+//                                    markedNode.add(otherHost);
+//                                    recaptureNode.add(otherHost);
+//                               }else {
+//                                recaptureNode.add(otherHost);
+//                            } 
+//                        
+//                        //}
+//                    }
+//                }
                 
                 
             }
@@ -295,7 +309,7 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine, Observer
         for (Iterator<Message> iterator  = messagesCollection.iterator(); iterator.hasNext();) {
             Message msg = iterator.next();
             
-            if(msg.getPrefix().equals(markPrefix) && cekHost.startsWith("Obs")){
+            if(msg.getPrefix().equals(markPrefix)){
                 if(msg.getFrom() == host){
                     int messageTtl = msg.getTtl();
                     if(messageTtl <= 0){
@@ -305,7 +319,7 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine, Observer
                         this.setEstimation(0);
                         this.markedNode.clear();
                         this.recaptureNode.clear();
-                        this.markMessage.remove(0);
+                        //this.markMessage.remove(0);
 //                        this.mId = this.markMessage.get(0);
                         
                         
@@ -333,18 +347,18 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine, Observer
                 
                 for (Iterator<Message> iterator  = messagesCollection.iterator(); iterator.hasNext();) {
                     Message msg = iterator.next();
-                    if(msg.getPrefix().equals(markPrefix) && this.mId.equals(msg.getId())){
+                    if(msg.getPrefix().equals(markPrefix) ){
                         if(host.equals(msg.getFrom())){
                             Integer nrofMark = (Integer) msg.getProperty(MSG_MARK_PROPERTY);
 
-                            if(nrofMark <=1 ){
+                            if(nrofMark ==1 ){
     //                            System.out.println("");
     //                            System.out.println("Node " + host.getName());
     //                            System.out.println("nrofMark " + nrofMark);
     //                            System.out.println("Interval " + SimClock.getIntTime());
     //                            System.out.println("TTL "+ msg.getTtl());
     //                            System.out.println("m " + this.markedNode.size());
-                                if(this.markedNode.size() >= 2 ){
+                                if(!markedNode.isEmpty() ){
                                     int tempEstimation = (initialNrofMark * this.recaptureNode.size()) / this.markedNode.size();
                                     this.setEstimation(tempEstimation);
                                     System.out.println("Interval " + SimClock.getIntTime());
