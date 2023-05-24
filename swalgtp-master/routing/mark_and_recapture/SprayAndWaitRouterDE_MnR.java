@@ -143,9 +143,10 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine, Observer
         
         
         if (m.getPrefix().equals(Observer.getInstance().getMarkPrefix())){
-            if(!this.markMessage.isEmpty()){
-                return false;
-            }
+            //if nya dipakai hanya untuk run random
+//            if(!this.markMessage.isEmpty()){
+//                return false;
+//            }
             m.addProperty(MSG_MARK_PROPERTY, initialNrofMark);
             this.markMessage.add(m.getId());
             //this.mId = this.markMessage.get(0);
@@ -193,6 +194,9 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine, Observer
 
     @Override
     public boolean shouldSendMessageToHost(Message m, DTNHost otherHost) {
+        if(isObserver(otherHost)){
+           return false;
+       }
         if (m.getTo() == otherHost) {
             return true;
         }
@@ -233,7 +237,7 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine, Observer
                 
             
                  //memulai recapture
-               if(cekHost.startsWith("Obs") && !markMessage.isEmpty()){
+               if(cekHost.startsWith("Obs") && !markMessage.isEmpty() && nrofMark ==1 ){
                    //String markMessageId = this.markMessage.get(0);
                    //System.out.println(cekHost + "should sent" + markMessageId);
                      for (Iterator<Message> iterator = messages.iterator(); iterator.hasNext();) {
@@ -241,6 +245,7 @@ public class SprayAndWaitRouterDE_MnR implements RoutingDecisionEngine, Observer
                         //if(m.getPrefix().equals(markPrefix)  ){
                             if(!recaptureNode.contains(otherHost)){
                                 recaptureNode.add(otherHost);
+                                
                             }
                             if (thisHost.equals(msgItr.getFrom())&& markMessage.get(0).equals(msgItr.getId()) ) {
                                 
