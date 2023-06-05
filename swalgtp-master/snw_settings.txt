@@ -3,9 +3,9 @@ Group.router = DecisionEngineRouter
 DecisionEngineRouter.decisionEngine = sprayandwait.SprayAndWaitRouterDecisionEngine
 DecisionEngineRouter.binaryMode = true
 
-DecisionEngineRouter.nrofCopies = [6; 90]
+DecisionEngineRouter.nrofCopies = 5
 
-Events1.hosts = 0,119
+Events1.hosts = 0,49
 
 # how many reports to load
 Report.nrofReports = 2

@@ -21,138 +21,132 @@ DecisionEngineRouter.decisionEngine = mark_and_recapture.SprayAndWaitRouterDE_Mn
 DecisionEngineRouter.binaryMode = true
 
 #DecisionEngineRouter.nrofCopies = 5
-DecisionEngineRouter.nrofMark = 10
+DecisionEngineRouter.nrofMark = 20
 DecisionEngineRouter.recaptureInterval = 3600
 
 
-Scenario.nrofHostGroups = 20
+Scenario.nrofHostGroups = 12
 
 ## TTL 24 hours=1440, 1 week= 10080, 3 weeks= 30240
-Group.msgTtl = 1440
+Group.msgTtl = 2940
 Group.nrofInterfaces = 1
 Group.interface1 = btInterface
-Group.bufferSize = 10M
+Group.bufferSize = 2024M
 Group.waitTime = 20, 50
 Group.speed = 0.5, 1.5
 Group.nodeLocation = 10, 10
 Group.movementModel = StationaryMovement
 
-Group1.groupID = Observer
-Group1.movementModel = RandomWaypointObs
-Group1.moveArea = 1
-Group1.speed = 0.5, 1.5
-Group1.nrofHosts = 1
 
+
+#Dimatikan
+Group1.groupID = A
+Group1.nrofHosts = 20
+Group1.net.activeTimes = 0, 154800
+#44100, 91800
+#0, 29700, 66600, 274883
 
 Group2.groupID = Observer
 Group2.movementModel = RandomWaypointObs
-Group2.moveArea = 2
+Group2.moveArea = 1
 Group2.speed = 0.5, 1.5
 Group2.nrofHosts = 1
 
+
 Group3.groupID = Observer
 Group3.movementModel = RandomWaypointObs
-Group3.moveArea = 3
+Group3.moveArea = 2
 Group3.speed = 0.5, 1.5
 Group3.nrofHosts = 1
 
 Group4.groupID = Observer
 Group4.movementModel = RandomWaypointObs
-Group4.moveArea = 4
+Group4.moveArea = 3
 Group4.speed = 0.5, 1.5
 Group4.nrofHosts = 1
 
 Group5.groupID = Observer
 Group5.movementModel = RandomWaypointObs
-Group5.moveArea = 5
+Group5.moveArea = 4
 Group5.speed = 0.5, 1.5
 Group5.nrofHosts = 1
 
 Group6.groupID = Observer
 Group6.movementModel = RandomWaypointObs
-Group6.moveArea = 6
+Group6.moveArea = 5
 Group6.speed = 0.5, 1.5
 Group6.nrofHosts = 1
 
 Group7.groupID = Observer
 Group7.movementModel = RandomWaypointObs
-Group7.moveArea = 7
+Group7.moveArea = 6
 Group7.speed = 0.5, 1.5
 Group7.nrofHosts = 1
 
 Group8.groupID = Observer
 Group8.movementModel = RandomWaypointObs
-Group8.moveArea = 8
+Group8.moveArea = 7
 Group8.speed = 0.5, 1.5
 Group8.nrofHosts = 1
 
 Group9.groupID = Observer
 Group9.movementModel = RandomWaypointObs
-Group9.moveArea = 9
+Group9.moveArea = 8
 Group9.speed = 0.5, 1.5
 Group9.nrofHosts = 1
 
-#Dimatikan
-Group10.groupID = A
-Group10.nrofHosts = 2
-Group10.net.activeTimes = 0, 154800
-#44100, 91800
-#0, 29700, 66600, 274883
+Group10.groupID = Observer
+Group10.movementModel = RandomWaypointObs
+Group10.moveArea = 9
+Group10.speed = 0.5, 1.5
+Group10.nrofHosts = 1
 
 #Hidup
 Group11.groupID = B
-Group11.nrofHosts = 6
+Group11.nrofHosts = 11
 
 #Dimatikan
 Group12.groupID = G
-Group12.nrofHosts = 2
+Group12.nrofHosts = 1
 Group12.net.activeTimes = 0, 154800
 #44100, 91800
 #0, 29700, 66600, 274883
 
 #Hidup
-Group13.groupID = H
-Group13.nrofHosts = 4
+#Group4.groupID = H
+#Group4.nrofHosts = 4
 
 #Dimatikan
-Group14.groupID = I
-Group14.nrofHosts = 2
-Group14.net.activeTimes = 0, 154800
+#Group5.groupID = I
+#Group5.nrofHosts = 4
+#Group5.net.activeTimes = 0, 154800
 #44100, 91800
 #0, 29700, 66600, 274883
 
 #Hidup
-Group15.groupID = J
-Group15.nrofHosts = 4
+#Group6.groupID = J
+#Group6.nrofHosts = 2
+
+
 
 #Dimatikan
-Group16.groupID = K
-Group16.nrofHosts = 2
-Group16.net.activeTimes = 0, 154800
+#Group16.groupID = K
+#Group16.nrofHosts = 3
+#Group16.net.activeTimes = 0, 154800
 #44100, 91800
 #0, 29700, 66600, 274883
 
 #Hidup
-Group17.groupID = L
-Group17.nrofHosts = 5
+#Group17.groupID = L
+#Group17.nrofHosts = 3
 
 #Dimatikan
-Group18.groupID = O
-Group18.nrofHosts = 2
-Group18.net.activeTimes = 0, 154800
+#Group18.groupID = O
+#Group18.nrofHosts = 6
+#Group18.net.activeTimes = 0, 154800
 #44100, 91800
 #0, 29700, 66600, 274883
 
-#Hidup
-Group19.groupID = P
-Group19.nrofHosts = 6 
-
-#Dimatikan
-Group20.groupID = S
-Group20.nrofHosts = 1
-Group20.net.activeTimes = 0, 154800
-#44100, 91800
-#0, 29700, 66600, 274883
 
 
 E## Message creation parameters 
@@ -168,7 +162,7 @@ Events2.interval = 25, 35
 Events2.size = 10k 
 
 ## range of message source/destination address 
-Events2.hosts = 0, 44
+Events2.hosts = 0,40
 # 0, 35 Haggle Cam
 # 0,40 Haggle
 # 0,96 Reality
@@ -185,7 +179,7 @@ MovementModel.warmup = 1000
 # how many reports to load
 Report.nrofReports = 5
 Report.warmup = 0
-Report.reportDir = reports/Haggle3 mark and recapture
+Report.reportDir = reports/Haggle3 mark and recapture new
 
 # Report classes to load
 Report.report1 = TotalNodeHidupReport

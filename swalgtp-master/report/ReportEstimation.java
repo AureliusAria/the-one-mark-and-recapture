@@ -27,7 +27,7 @@ public class ReportEstimation extends Report implements UpdateListener{
     private static Map<DTNHost, Map<Double, Integer>> estimasi;
     private static List<Double> intervalTime;
     private double lastUpdate = 0;
-    private double updateInterval= 36000;
+    private double updateInterval= 7200;
 
     public ReportEstimation() {
         estimasi = new HashMap<DTNHost, Map<Double, Integer>>();
