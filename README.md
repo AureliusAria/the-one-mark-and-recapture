@@ -4,7 +4,9 @@ Aurelius Aria Baras Panyapa aureliusaria0406@gmail.com
 Algoritma mark and recapture dapat ditemukan di package routing.mark_and recapture, terdapat beberapa kelas pada package tersebut
 
 Kelas Observer berisi prefix yang berfungsi sebagai identitas untuk mengindentifikasi sebuah node(terutama observer)
+
 Interface Observer di implement oleh kelas SprayAndWaitDE_MnR yang nantinya berguna untuk report hasil
+
 Kelas SprayAndWaitRouterDE_MnR adalah kelas routing spray and wait dengan decision engine yang ditambahkan algoritma mark and recapture(kelas utama pada TA saya)
 
 Report yang digunakan untuk melihat hasil algoritma mark and recapture adalah kelas ReportEstimation, ReportEstimation_New pada package report
