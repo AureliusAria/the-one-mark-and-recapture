@@ -16,5 +16,7 @@ Kelas interface Observer digunakan untuk mengambil nilai hasil estimasi dari kel
 Pada default setting terdapat beberapa skenario untuk dataset tanpa Mark and Recapture & dataset menggunakan Mark and recapture dengan skenario beberapa node mati
 
 untuk running pergerakan random menggunakan Run_Mark&Recapture_Random_1.txt
+
 untuk running pergerakan Reality menggunakan RealityActiveTimes-Mark&Recapture.txt
+
 untuk running pergerakan Haggle menggunakan Haggle3ActiveTimes-Mark&Recapture.txt
