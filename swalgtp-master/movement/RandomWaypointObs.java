@@ -69,6 +69,7 @@ public class RandomWaypointObs extends MovementModel {
             case 1:
                 randX = ((getMaxX() / 3) - 0) * rng.nextDouble() + 0;
                 randY = ((getMaxY() / 3) - 0) * rng.nextDouble() + 0;
+                System.out.println(randX + randY);
                 return new Coord(randX, randY);
             case 2:
                 randX = rng.nextDouble() * (getMaxX() * 2/3 - getMaxX() * 1/3) + getMaxX() * 1/3;
@@ -81,8 +82,7 @@ public class RandomWaypointObs extends MovementModel {
                 randX = (getMaxX() - (getMaxX()*2/3)) * rng.nextDouble() + (getMaxX()*2/3);
                 randY = ((getMaxY()/3) - 0) * rng.nextDouble() + 0;
                 //5
-//                randX = ((getMaxX()*2/3) - (getMaxX()/3)) * rng.nextDouble() + (getMaxX()/3);
-//                randY = ((getMaxY()*2/3) - (getMaxY()/3)) * rng.nextDouble() + (getMaxY()/3);
+
 		return new Coord(randX,	randY);
             case 4:
                 randX = rng.nextDouble() * (getMaxX() * 1/3 - 0) + 0;

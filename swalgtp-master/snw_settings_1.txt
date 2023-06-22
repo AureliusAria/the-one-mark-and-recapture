@@ -1,0 +1,83 @@
+Scenario.name = MnR Report
+Scenario.endTime = 864000
+
+Group.router = DecisionEngineRouter
+Group.msgTtl = 1440
+Group.bufferSize = 10M
+Group.waitTime = 0, 120
+# All nodes have the wirelessLan interface
+Group.nrofInterfaces = 1
+#Group.interface1 = wirelessLan
+Group.interface1 = btInterface
+
+
+DecisionEngineRouter.decisionEngine = sprayandwait.SprayAndWaitRouterDecisionEngine
+DecisionEngineRouter.binaryMode = true
+Scenario.updateInterval = 1
+DecisionEngineRouter.nrofCopies = 40
+#DecisionEngineRouter.nrofMark = 10
+#DecisionEngineRouter.recaptureInterval = 3600
+
+
+btInterface.type = SimpleBroadcastInterface
+btInterface.transmitSpeed = 100k
+btInterface.transmitRange = 50
+
+Scenario.nrofHostGroups = 2 
+
+Group1.groupID = A
+Group1.movementModel = RandomWaypoint
+Group1.speed = 0.5, 1.0
+Group1.nrofHosts = 34
+
+Group2.groupID = B
+Group2.movementModel = RandomWaypoint
+Group2.speed = 0.5, 1.0
+Group2.nrofHosts = 25
+Group2.net.activeTimes = 0, 600000
+
+
+
+MovementModel.worldSize = 1000, 1000
+
+Events1.hosts = 0, 58
+
+# Message creation parameters 
+# How many event generators
+Events.nrof = 1
+# Class of the first event generator
+Events1.class = MessageEventGenerator
+# (following settings are specific for the MessageEventGenerator class)
+# Creation interval in seconds (one new message every 25 to 35 seconds)
+Events1.interval = 25, 35
+# Message sizes (500kB - 1MB)
+Events1.size = 10k
+# range of message source/destination addresses
+# Message ID prefix
+Events1.prefix = M
+
+MovementModel.warmup = 1000
+
+# how many reports to load
+Report.nrofReports = 1
+Report.warmup = 0
+Report.reportDir = reports/MnR_Perbandingan
+
+# Report classes to load
+Report.report1 = MessageStatsReport
+
+## GUI settings
+
+# GUI underlay image settings
+GUI.UnderlayImage.fileName = data/helsinki_underlay.png
+# Image offset in pixels (x, y)
+GUI.UnderlayImage.offset = 64, 20
+# Scaling factor for the image
+GUI.UnderlayImage.scale = 4.75
+# Image rotation (radians)
+GUI.UnderlayImage.rotate = -0.015
+
+# how many events to show in the log panel (default = 30)
+GUI.EventLogPanel.nrofEvents = 100
+# Regular Expression log filter (see Pattern-class from the Java API for RE-matching details)
+#GUI.EventLogPanel.REfilter = .*p[1-9]<->p[1-9]$

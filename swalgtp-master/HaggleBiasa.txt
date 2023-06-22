@@ -1,5 +1,5 @@
 #Scenario information
-Scenario.name = Haggle3
+Scenario.name = Haggle3 mark and recapture
 Scenario.simulateConnections = false
 Scenario.updateInterval = 1 
 Scenario.endTime = 274883
@@ -17,11 +17,14 @@ btInterface.transmitRange = 10
 #Group.router = ShortestPathMapBasedMovement
 
 Group.router = DecisionEngineRouter
-DecisionEngineRouter.decisionEngine = sprayandwait.SprayAndWaitRouterWithTaxiProblemDiTambah
+DecisionEngineRouter.decisionEngine = sprayandwait.SprayAndWaitRouterDecisionEngine
 DecisionEngineRouter.binaryMode = true
 
+DecisionEngineRouter.nrofCopies = 5
 
-Scenario.nrofHostGroups = 11
+
+
+Scenario.nrofHostGroups = 2
 
 ## TTL 24 hours=1440, 1 week= 10080, 3 weeks= 30240
 Group.msgTtl = 1440
@@ -33,67 +36,20 @@ Group.speed = 0.5, 1.5
 Group.nodeLocation = 10, 10
 Group.movementModel = StationaryMovement
 
+
+
 #Dimatikan
 Group1.groupID = A
-Group1.nrofHosts = 2
-Group1.net.activeTimes = 0, 29700, 66600, 274883
+Group1.nrofHosts = 20
+#Group1.net.activeTimes = 0, 154800
 #44100, 91800
 #0, 29700, 66600, 274883
+
+
 
 #Hidup
 Group2.groupID = B
-Group2.nrofHosts = 6
-
-#Dimatikan
-Group3.groupID = G
-Group3.nrofHosts = 2
-Group3.net.activeTimes = 0, 29700, 66600, 274883
-#44100, 91800
-#0, 29700, 66600, 274883
-
-#Hidup
-Group4.groupID = H
-Group4.nrofHosts = 4
-
-#Dimatikan
-Group5.groupID = I
-Group5.nrofHosts = 2
-Group5.net.activeTimes = 0, 29700, 66600, 274883
-#44100, 91800
-#0, 29700, 66600, 274883
-
-#Hidup
-Group6.groupID = J
-Group6.nrofHosts = 4
-
-#Dimatikan
-Group7.groupID = K
-Group7.nrofHosts = 2
-Group7.net.activeTimes = 0, 29700, 66600, 274883
-#44100, 91800
-#0, 29700, 66600, 274883
-
-#Hidup
-Group8.groupID = L
-Group8.nrofHosts = 7
-
-#Dimatikan
-Group9.groupID = O
-Group9.nrofHosts = 2
-Group9.net.activeTimes = 0, 29700, 66600, 274883
-#44100, 91800
-#0, 29700, 66600, 274883
-
-#Hidup
-Group10.groupID = P
-Group10.nrofHosts = 9 
-
-#Dimatikan
-Group11.groupID = S
-Group11.nrofHosts = 1
-Group11.net.activeTimes = 0, 29700, 66600, 274883
-#44100, 91800
-#0, 29700, 66600, 274883
+Group2.nrofHosts = 21
 
 
 E## Message creation parameters 
@@ -105,11 +61,11 @@ Events1.class = ExternalEventsQueue
 Events1.filePath = Haggle3-Infocom5.csv
 #Events1.filePath = Haggle4-Cam-Imote.csv
 Events2.class = MessageEventGenerator
-Events2.interval = 290,310
+Events2.interval = 25, 35
 Events2.size = 10k 
 
 ## range of message source/destination address 
-Events2.hosts = 0, 40
+Events2.hosts = 0,40
 # 0, 35 Haggle Cam
 # 0,40 Haggle
 # 0,96 Reality
@@ -124,15 +80,15 @@ MovementModel.warmup = 1000
 ## Reports - all report names have to be valid report classes
 
 # how many reports to load
-Report.nrofReports = 4
+Report.nrofReports = 1
 Report.warmup = 0
-Report.reportDir = reports/Haggle3ActiveTimes
+Report.reportDir = reports/Haggle3 Biasa
 
 # Report classes to load
-Report.report1 = MessageReportGetCounting
-Report.report2 = AverageConvergenTimeReport
-Report.report3 = TotalNodeHidupReport
-Report.report4 = MessageStatsReport
+
+Report.report1 = MessageStatsReport
+
+
 
 ## GUI settings
 

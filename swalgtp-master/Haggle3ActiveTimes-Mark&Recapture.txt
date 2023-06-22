@@ -21,17 +21,17 @@ DecisionEngineRouter.decisionEngine = mark_and_recapture.SprayAndWaitRouterDE_Mn
 DecisionEngineRouter.binaryMode = true
 
 #DecisionEngineRouter.nrofCopies = 5
-DecisionEngineRouter.nrofMark = 20
+DecisionEngineRouter.nrofMark = 5
 DecisionEngineRouter.recaptureInterval = 3600
 
 
 Scenario.nrofHostGroups = 12
 
 ## TTL 24 hours=1440, 1 week= 10080, 3 weeks= 30240
-Group.msgTtl = 2940
+Group.msgTtl = 1440
 Group.nrofInterfaces = 1
 Group.interface1 = btInterface
-Group.bufferSize = 2024M
+Group.bufferSize = 10M
 Group.waitTime = 20, 50
 Group.speed = 0.5, 1.5
 Group.nodeLocation = 10, 10
@@ -48,6 +48,7 @@ Group1.net.activeTimes = 0, 154800
 
 Group2.groupID = Observer
 Group2.movementModel = RandomWaypointObs
+Group2.msgTtl = 2940
 Group2.moveArea = 1
 Group2.speed = 0.5, 1.5
 Group2.nrofHosts = 1
@@ -55,48 +56,56 @@ Group2.nrofHosts = 1
 
 Group3.groupID = Observer
 Group3.movementModel = RandomWaypointObs
+Group3.msgTtl = 2940
 Group3.moveArea = 2
 Group3.speed = 0.5, 1.5
 Group3.nrofHosts = 1
 
 Group4.groupID = Observer
 Group4.movementModel = RandomWaypointObs
+Group4.msgTtl = 2940
 Group4.moveArea = 3
 Group4.speed = 0.5, 1.5
 Group4.nrofHosts = 1
 
 Group5.groupID = Observer
 Group5.movementModel = RandomWaypointObs
+Group5.msgTtl = 2940
 Group5.moveArea = 4
 Group5.speed = 0.5, 1.5
 Group5.nrofHosts = 1
 
 Group6.groupID = Observer
 Group6.movementModel = RandomWaypointObs
+Group6.msgTtl = 2940
 Group6.moveArea = 5
 Group6.speed = 0.5, 1.5
 Group6.nrofHosts = 1
 
 Group7.groupID = Observer
 Group7.movementModel = RandomWaypointObs
+Group7.msgTtl = 2940
 Group7.moveArea = 6
 Group7.speed = 0.5, 1.5
 Group7.nrofHosts = 1
 
 Group8.groupID = Observer
 Group8.movementModel = RandomWaypointObs
+Group8.msgTtl = 2940
 Group8.moveArea = 7
 Group8.speed = 0.5, 1.5
 Group8.nrofHosts = 1
 
 Group9.groupID = Observer
 Group9.movementModel = RandomWaypointObs
+Group9.msgTtl = 2940
 Group9.moveArea = 8
 Group9.speed = 0.5, 1.5
 Group9.nrofHosts = 1
 
 Group10.groupID = Observer
 Group10.movementModel = RandomWaypointObs
+Group10.msgTtl = 2940
 Group10.moveArea = 9
 Group10.speed = 0.5, 1.5
 Group10.nrofHosts = 1

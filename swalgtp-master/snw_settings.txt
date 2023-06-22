@@ -3,7 +3,7 @@ Group.router = DecisionEngineRouter
 DecisionEngineRouter.decisionEngine = sprayandwait.SprayAndWaitRouterDecisionEngine
 DecisionEngineRouter.binaryMode = true
 
-DecisionEngineRouter.nrofCopies = 5
+DecisionEngineRouter.nrofCopies = 40
 
 Events1.hosts = 0,49
 
@@ -12,7 +12,7 @@ Report.nrofReports = 2
 # length of the warm up period (simulated seconds)
 Report.warmup = 0
 # default directory of reports (can be overridden per Report with output setting)
-Report.reportDir = reports/
+Report.reportDir = reports/snw perbandingan
 # Report classes to load
 Report.report1 = ContactTimesReport
 Report.report2 = MessageStatsReport
